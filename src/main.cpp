@@ -13,12 +13,18 @@
  */
 
 // STEP 1: Define IR sensor digital pin
+
 #define IR_SENSOR_PIN 2
 
-// Variable to store sensor state
 int irState = 0;
 
 void setup() {
+
+    // STEP 2: Initialize Serial communication
+    Serial.begin(9600);
+}
+
+void loop() {
 }
 
 void loop() {
