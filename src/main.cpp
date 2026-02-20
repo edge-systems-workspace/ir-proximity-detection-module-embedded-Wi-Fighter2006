@@ -14,13 +14,18 @@ int irState = 0;
 void setup() {
 
     Serial.begin(9600);
-
-    // STEP 3: Configure IR sensor pin as INPUT
     pinMode(IR_SENSOR_PIN, INPUT);
 
-    // STEP 3: Print initialization message
     Serial.println("=== IR Obstacle Detection System Initialized ===");
 }
 
 void loop() {
+
+    // STEP 4: Read digital value from IR sensor
+    irState = digitalRead(IR_SENSOR_PIN);
+
+    Serial.print("Sensor State: ");
+    Serial.println(irState);
+
+    delay(200);
 }
