@@ -5,6 +5,10 @@
  * @brief Embedded Obstacle Detection System using IR Sensor
  * @author Piyush Choudhary
  * @date 2026-02-20
+ *
+ * @details
+ * Reads digital input from an IR obstacle detection sensor
+ * and prints obstacle status to the Serial Monitor.
  */
 
 #define IR_SENSOR_PIN 2
@@ -21,11 +25,17 @@ void setup() {
 
 void loop() {
 
-    // STEP 4: Read digital value from IR sensor
+    // Read digital value from IR sensor
     irState = digitalRead(IR_SENSOR_PIN);
 
-    Serial.print("Sensor State: ");
-    Serial.println(irState);
+    // If obstacle detected (Most IR modules output LOW when obstacle present)
+    if (irState == LOW) {
+        Serial.println("Obstacle Detected");
+    } 
+    else {
+        Serial.println("No Obstacle");
+    }
 
-    delay(200);
+    // Small delay for readability
+    delay(300);
 }
